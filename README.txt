@@ -1,45 +1,28 @@
-Choose ONE of the following tasks.
-Please do not invest more than 2-4 hours on this.
-Upload your results to a Github repo, for easier sharing and reviewing.
-
-Thank you and good luck!
-
-
+I have reviewed both the codes and got some comments about the code.
 
 Code to refactor
 =================
 1) app/Http/Controllers/BookingController.php
 2) app/Repository/BookingRepository.php
 
+Comments: -
+1. This code looks ok to me. What i would like to do in this code is use of API Resources, i saw that each function is returning data in form of response. 
+what if we want to write code for api's, do we have to rewrite everything? and if not in this case our repo is handling all the response. This is the role of API Resources.
+2. I preffer to use interface with implementation in repositery, in this way we can seprate out logics also. we just need to call interface in our controler, and many repo can implement that interface also.
+3. I prefer using Laravel FCM instead of using Curl for push notification.
+4. If there are multiple notifications like mail, database and push notifications use Larvel Notifications and that will handle all of them once.
+5. We can call notifications in events, currently we are using both notifications and events. just use events in repositery, and notifications in events.
+6. Its good idea of using form request instead of just using request 
+7. If using INNODB as database engine its good to lock row level transactions, what id we are inserting in multiple tables and last one return error. in that case we need to roll back all transactions.
+
 Code to write tests
 =====================
 3) App/Helpers/TeHelper.php method willExpireAt
 4) App/Repository/UserRepository.php, method createOrUpdate
 
-
-----------------------------
-
-What I expect in your repo:
-
-X. A readme with:   Your thoughts about the code. What makes it amazing code. Or what makes it ok code. Or what makes it terrible code. How would you have done it. Thoughts on formatting, structure, logic.. The more details that you can provide about the code (what's terrible about it or/and what is good about it) the easier for us to assess your coding style, mentality etc
-
-And 
-
-Y.  Refactor it if you feel it needs refactoring. The more love you put into it. The easier for us to asses your thoughts, code principles etc
+1. This one looks ok to me, we can use model fillable proerty instead of assigning each value.
 
 
-IMPORTANT: Make two commits. First commit with original code. Second with your refactor so we can easily trace changes. 
 
-
-NB: you do not need to set up the code on local and make the web app run. It will not run as its not a complete web app. This is purely to assess you thoughts about code, formatting, logic etc
-
-
-===== So expected output is a GitHub link with either =====
-
-1. Readme described above (point X above) + refactored code 
-OR
-2. Readme described above (point X above) + a unit test of the code that we have sent
-
-Thank you!
 
 
